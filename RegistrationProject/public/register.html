@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="signpage">
+        <form action="/save" method="post">
+            <h1>Registration Form</h1><br>
+            <input type="text" id="name" name="name" placeholder="Enter your name" onkeyup="validateName(this.value)"><span id="invalidname"></span><br>
+            <input type="text" id="name" name="email" placeholder="Enter your email" onkeyup="validateEmail(this.value)"><span id="invalidemail"></span><br>
+            <input type="text" id="num" name="phn" placeholder="Enter your number" onkeyup="validateNumber(this.value)"><span id="invalidnum"></span><br>
+            <label for="qualification">Select Qualification</label>
+            <select id="qualification" name="qualification">
+                <option value="ssc">SSC (10th)</option>
+                <option value="hsc">HSC (12th)</option>
+                <option value="diploma">Diploma</option>
+                <option value="bachelors">Bachelor's Degree</option>
+                <option value="masters">Master's Degree</option>
+                <option value="other">Other</option>
+            </select><br>
+            <label for="qualification">Enter DOB</label>
+            <input type="date" id="dob" name="dob" onkeyup="validateDOB(this.value)" onchange="validateDOB(this.value)" required><span id="invalidDob"></span><br>
+            <label for="qualification">Select University</label>
+            <select id="university" name="university">
+                <option value="suk">BAMU University, SambhajiNagar</option>
+                <option value="spu">SPU,Pune</option>
+                <option value="mit">MIT,Pune</option>
+            </select><br>
+            <button type="submit" id="submitBtn">Register</button>
+        </form>
+    </div>
+    <h1 id="display"></h1>
+
+    <script>
+
+        function validateName(str){
+            str=str.toLowerCase();
+            let msg=document.getElementById("invalidname");
+            const submitBtn = document.getElementById("submitBtn");
+            let flag=true;
+            if(str.length<2 || str.charCodeAt(0)==32 || str.charCodeAt(str.length-1)==32){
+                flag=false;
+            }
+            for(let i=0;i<str.length;i++){
+                if(!((str.charCodeAt(i)>=97 && str.charCodeAt(i)<=122) || str.charCodeAt(i)==32)){
+                    flag=false;
+                }
+            }
+            if(flag){
+                msg.innerHTML="Valid name";
+                msg.style.color="green";
+                submitBtn.disabled = false;
+            }else{
+                msg.innerHTML="Invalid name";
+                msg.style.color="red";
+                submitBtn.disabled = true;
+            }
+        }
+
+
+        function validateNumber(str){
+            str=str.toLowerCase();
+            let msg=document.getElementById("invalidnum");
+            const submitBtn = document.getElementById("submitBtn");
+            let flag=true;
+            if(!(str.charCodeAt(0)>=54 && str.charCodeAt(0)<=57)){
+                flag=false;
+            }
+            if(str.length!=10){
+                flag=false;
+            }else{
+                for(let i=0;i<str.length;i++){
+                    if(!(str.charCodeAt(i)>=48 && str.charCodeAt(i)<=57)){
+                        flag=false;
+                    }
+                }
+            }
+            if(flag){
+                msg.innerHTML="Valid phone number";
+                msg.style.color="green";
+                submitBtn.disabled = false;
+            }else{
+                msg.innerHTML="Invalid phone number";
+                msg.style.color="red";
+                submitBtn.disabled = true;
+            }
+        }
+
+        function validateEmail(str){
+            let index=str.indexOf('@');
+            let lastIndex=str.lastIndexOf('@');
+            let msg=document.getElementById("invalidemail");
+            const submitBtn = document.getElementById("submitBtn");
+            if(isCapital(str) || (index<=0 || index!=lastIndex)){
+                msg.innerHTML="Invalid Email";
+                msg.style.color="red";
+                submitBtn.disabled = true;
+            }
+            else{
+                let s=str.substring((index+1));
+                index=s.indexOf('.');
+                lastIndex=s.lastIndexOf('.');
+
+                if((index==-1||index!=lastIndex)||(index!=(s.length-4)&& index!=(s.length-3))){
+                    msg.innerHTML="Invalid Email";
+                    msg.style.color="red";
+                    submitBtn.disabled = true;
+                }
+                else{
+                    msg.innerHTML="Valid Email";
+                    msg.style.color="green";
+                    submitBtn.disabled = false;
+                } 
+            }
+        };
+
+        function isCapital(s){
+            for(let i=0;i<s.length;i++){
+                if(s[i]>='A' && s[i]<='Z'){
+                    return true;
+                }
+                return false;
+            }
+        }
+
+
+        function validateDOB(dobStr) {
+            const msg = document.getElementById("invalidDob");
+            const submitBtn = document.getElementById("submitBtn");
+            const dob = new Date(dobStr);
+            const today = new Date();
+
+      // Future DOB not allowed
+            if (dob > today) {
+                msg.innerHTML = "DOB cannot be in the future.";
+                msg.style.color = "red";
+                submitBtn.disabled = true;
+                return;
+            }
+
+      // Calculate age
+            let age = today.getFullYear() - dob.getFullYear();
+            const m = today.getMonth() - dob.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            if (age > 18) {
+                msg.innerHTML = "Valid Age";
+                msg.style.color = "green";
+                submitBtn.disabled = false;
+            } else {
+                msg.innerHTML = "Invalid Age. Must be older than 18.";
+                msg.style.color = "red";
+                submitBtn.disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>
