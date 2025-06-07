@@ -2,7 +2,7 @@ let express=require("express");
 let path=require("path");
 let bodyParser=require("body-parser");
 let mysql=require("mysql2");
-const { emit } = require("process");
+
 
 let app=express();
 app.use(express.static("public"));
