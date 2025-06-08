@@ -21,10 +21,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-   background: linear-gradient(to top, red, orange, yellow);   
+   background: linear-gradient(to top, rgb(95, 6, 6),red, orange, yellow);   
     border-radius: 20px;
     color: black;
-    box-shadow: 0px 0px 60px white;
+      border: none;
+    box-shadow: 0px 0px 80px white;
 }
 
 form {
@@ -32,13 +33,21 @@ form {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+   
+}
+.mai{
+      display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+   
 }
 
 input,option,select{
     height: 40px;
     width: 400px;
-    
-    text-align: center;
+    /* text-align: center; */
+    padding: 10px;
     border: none;
     border-radius: 10px;
     background-color: rgb(217, 236, 253);
@@ -47,7 +56,8 @@ input,option,select{
 button {
     height: 40px;
     width: 300px;
-    background: linear-gradient(to top, red, orange, yellow); 
+    background: linear-gradient(to top, rgb(2, 9, 17), rgb(129, 129, 198), rgb(11, 5, 17)); 
     color: white;
+    border:none;
     border-radius: 40px;
 }
