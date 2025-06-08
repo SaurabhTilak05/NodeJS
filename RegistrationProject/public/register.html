@@ -10,8 +10,9 @@
     <div class="signpage">
         <form action="/save" method="post">
             <h1>Registration Form</h1><br>
+            <div class="mai">
             <input type="text" id="name" name="name" placeholder="Enter your name" onkeyup="validateName(this.value)"><span id="invalidname"></span><br>
-            <input type="text" id="name" name="email" placeholder="Enter your email" onkeyup="validateEmail(this.value)"><span id="invalidemail"></span><br>
+            <input type="text" id="email" name="email" placeholder="Enter your email" onkeyup="validateEmail(this.value)"><span id="invalidemail"></span><br>
             <input type="text" id="num" name="phn" placeholder="Enter your number" onkeyup="validateNumber(this.value)"><span id="invalidnum"></span><br>
             <label for="qualification">Select Qualification</label>
             <select id="qualification" name="qualification">
@@ -26,10 +27,12 @@
             <input type="date" id="dob" name="dob" onkeyup="validateDOB(this.value)" onchange="validateDOB(this.value)" required><span id="invalidDob"></span><br>
             <label for="qualification">Select University</label>
             <select id="university" name="university">
-                <option value="suk">BAMU University, SambhajiNagar</option>
                 <option value="spu">SPU,Pune</option>
+                 <option value="suk">BAMU,SambhajiNagar</option>
                 <option value="mit">MIT,Pune</option>
+                <option value="sit">SIT,Pune </option>
             </select><br>
+            </div>
             <button type="submit" id="submitBtn">Register</button>
         </form>
     </div>
@@ -134,7 +137,7 @@
             const dob = new Date(dobStr);
             const today = new Date();
 
-      // Future DOB not allowed
+     
             if (dob > today) {
                 msg.innerHTML = "DOB cannot be in the future.";
                 msg.style.color = "red";
@@ -142,7 +145,7 @@
                 return;
             }
 
-      // Calculate age
+      
             let age = today.getFullYear() - dob.getFullYear();
             const m = today.getMonth() - dob.getMonth();
             if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
