@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cointener">
+    <form action="/calbill" method="post">
+        <input type="text" name="qty" placeholder="Enter Quantity" /><br><br>
+        <input type="text" name="rate" placeholder="Enter Rate" /><br><br>
+        <input type="submit" value="Submit" />
+        <br><br>
+    </form>
+    <div class="total"> 
+        Total Bill is: <%=no1*no2%>
+    </div>
+    </div>
+
+    
+</body>
+</html>
