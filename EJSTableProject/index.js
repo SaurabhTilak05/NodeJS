@@ -5,7 +5,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get("/table",(req,res)=>{
+app.get("/",(req,res)=>{
     res.render("table.ejs",{no:0});
 });
 app.post("/table",(req,res)=>{
