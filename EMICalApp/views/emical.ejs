@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+    <form action="/emical" method="post">
+        <h2>Lone EMI Calculator</h2>
+        <label>Loan Amount :
+        <input type="number" name="amount" value=""/>
+        </label><br>
+        <label>Intrest Rate :
+        <input type="number" name="rate" value="" />
+        </label><br>
+        <label>Tenure(Year: )  :
+        <input type="number" name="yrs" value="" />
+        </label><br>
+        <button type="submit">Calculator EMI</button>
+    </form>
+    <% if(emi!==null){%>
+        <div class="output">
+            <p>Monthly EMI: <%=emi%></p>
+            <p>Principal  Amount: <%=principal%></p>
+            <p>Total Intrest: <%=interest%></p>
+        </div>
+    <% } %>
+</body>
+</html>
