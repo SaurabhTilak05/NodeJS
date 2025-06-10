@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="caintener">
+      <% if (typeof name !== 'undefined') { %>
+        <h2>Employee Details</h2>
+        <p><strong>Name:</strong> <%= name %></p>
+        <p><strong>Email:</strong> <%= email %></p>
+        <p><strong>Contact:</strong> <%= contact %></p>
+        <p><strong>Basic Salary:</strong> ₹<%= sal %></p>
+        <p><strong>DA (30%):</strong> ₹<%= da %></p>
+        <p><strong>HRA (30%):</strong> ₹<%= hra %></p>
+        <h3><strong>Total Salary:</strong> ₹<%= total %></h3>
+    <% } %>
+
+    </div>
+</body>
+</html>
