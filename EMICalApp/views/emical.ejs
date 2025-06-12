@@ -7,8 +7,93 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body> 
+
+
     <form action="/emical" method="post">
-        <h2>Lone EMI Calculator</h2>
+
+        
+        <table>
+        <tr>
+            <td>  <h3>Loan Amount</h3></td>
+             <td><input type="number" name="amount" id="name"  onkeyup="AmountVal(this.value)" value="100"/>
+             </td>
+        </tr>
+        <tr>
+            <td> <input type="range" name="amount" id="dd" max="1000000" oninput="AmountRag(this.value)" />
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>  <h3>Rate of intrest</h3></td>
+            <td><input type="number" name="rate" id="rate"  onkeyup="RateVal(this.value)" /></td>
+        </tr>
+        <tr>
+            <td> <input type="range" name="rate" id="rr" max="100" oninput="RateRag(this.value)" value="2" /></td><td></td>
+        </tr>
+        <tr>
+            <td><h3>Tenure</h3></td>
+            <td> <input type="number" name="yrs" id="yrs"  onkeyup="TenurYr(this.value)" /></td>
+        </tr>
+        <tr>
+            <td><input type="range" name="yrs" id="yy" max="100" oninput="TenurYrr(this.value)" value="1" /></td><td></td>
+        </tr>
+        <tr>
+            <td colspan="2"  align="center"> <button type="submit">Calculator EMI</button></td>
+           <td></td>
+        </tr>
+
+    </table>
+    </form>
+    
+   
+    <% if(emi!==null){%>
+        <div class="output">
+             <table>
+            <tr>
+           <td> <p>Monthly EMI: </p> </td><td><p><%=emi%></p></td>
+            </tr>
+            <tr>
+                <td>
+            <p>Principal Amount: </p> </td> <td> <p><%=principal%></p></td>
+
+            </tr>
+
+            <tr>
+            <td><p>Total Intrest:  </p></td> <td><p><%=interest%></p></td>
+            </tr>
+              </table>
+        </div>
+    <% } %>
+
+
+  
+
+    
+    <script>
+        function AmountVal(str){
+            document.getElementById("dd").value=str;
+        }
+        function AmountRag(str){
+            document.getElementById("name").value=str;
+        }
+
+        function RateVal(str){
+            document.getElementById("rr").value=str;
+        }
+        function RateRag(str){
+            document.getElementById("rate").value=str;
+        }
+          function TenurYr(str){
+            document.getElementById("yy").value=str;
+        }
+        function TenurYrr(str){
+            document.getElementById("yrs").value=str;
+        }
+    </script>
+</body>
+</html>
+
+  <!-- <h2>Lone EMI Calculator</h2>
         <label>Loan Amount :
         <input type="number" name="amount" value=""/>
         </label><br>
@@ -18,14 +103,4 @@
         <label>Tenure(Year: )  :
         <input type="number" name="yrs" value="" />
         </label><br>
-        <button type="submit">Calculator EMI</button>
-    </form>
-    <% if(emi!==null){%>
-        <div class="output">
-            <p>Monthly EMI: <%=emi%></p>
-            <p>Principal Amount: <%=principal%></p>
-            <p>Total Intrest: <%=interest%></p>
-        </div>
-    <% } %>
-</body>
-</html>
+        <button type="submit">Calculator EMI</button> -->
