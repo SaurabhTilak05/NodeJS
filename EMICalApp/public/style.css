@@ -10,41 +10,52 @@ body{
 }
 form{
     height: 400px;
-    width: 400px;
+    width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: green;
     flex-direction: column;
-    background: linear-gradient(to top, rgb(216, 150, 51), rgb(171, 222, 41),rgb(155, 202, 45), rgb(202, 179, 28),rgb(136, 216, 51));
+    background: linear-gradient(to top, rgb(12, 14, 16), rgb(14, 23, 11),rgb(33, 36, 27), rgb(31, 30, 25),rgb(17, 26, 6));
    border: none;
    box-shadow: 10px 10px 60px white ;
    
 }
 input{
     height: 35px;
-    width: 200px;
+    width: 100px;
     border: none;
     border-radius: 5px;
 }
-input:hover{
+input[type="range"]{
+    height: 35px;
+    width: 300px;
+    border-color: transparent;
+    color:green;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+}
+/* input:hover{
     background-color: rgb(144, 214, 220);
     scale: 1.1;
-}
+} */
 button{
     height: 30px;
     width: 150px;
     border: none;
+    
     border-radius: 5px;
-    background-color: rgb(25, 71, 112);
+    background-color:orange;
 }
 button:hover{
-    background-color: black;
+    background-color: rgb(48, 44, 173);
     color: aliceblue;
     scale: 1.2;
 }
 .output{
     height: 400px;
-    width: 300px;
+    width: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,3 +66,20 @@ button:hover{
    border: none;
    box-shadow: 10px 10px 60px white ;
 }
+.one, .two, .three{
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    align-items: center;
+
+}
+/* .two{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.three{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+} */
