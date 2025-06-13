@@ -10,4 +10,5 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use("/", router);
 app.set("views engine", "ejs");
 
+
 module.exports=app;
