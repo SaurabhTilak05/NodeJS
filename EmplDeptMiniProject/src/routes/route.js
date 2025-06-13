@@ -1,7 +1,8 @@
 let express=require("express");
+let deptctrl=require("../controllers/deptcontroller.js");
 let router=express.Router();
 
-router.post(".adddept", (req,res)=>{
-    res.send("I am Handeler worker as coontroller..");
-});
+router.post("/adddept",deptctrl.saveDept );
+router.get("/",deptctrl.homePage);
+router.get("/newdept",deptctrl.newDept);
 module.exports=router;
