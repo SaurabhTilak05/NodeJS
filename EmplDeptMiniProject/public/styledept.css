@@ -9,10 +9,10 @@ body{
     align-items: center;
    
 }
-.cointainer{
-   min-height: 400px;
-    width: 800px;
-    padding-top: 100px;
+.container{
+   min-height: 300px;
+    
+    padding-top: 80px;
    background-color:#343A40;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@ input{
 }
 input[type="submit"]{
      height: 40px;
-    /* width: 200px; */
+  
     color: white; 
     border: none;
     background-color: #0c1f33;
