@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Employee</title>
+       <script type="text/javascript" src="ajax.js"></script>
+</head>
+<body>
+    <%- include("home.ejs")%>
+    <br><br>
+<div class="container p-5 bg-dark">
+
+    <div class="form-group">
+           <select name="deptid" id="did" class="form-control" onchange="getEmployeeByDept(this.value)" >
+                <option value="0">Select Department</option>
+                <%
+                  deptList.forEach((deptData, index)=>{
+                  %>
+                  <option value="<%=deptData.deptid %>"><%=deptData.deptname%></option>
+                  <%
+                });
+                
+                %>
+           </select>
+
+           <table class="table bg-white mt-3 table-striped">
+                <thead >
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>CONTACT</th>
+                    <th>PHOTO</th>
+                     <th>DEPT</th>
+                   
+                </thead>
+
+                <tbody id="tblBody" >
+                    <tr>
+                        <td colspan="5">
+                            Select Department to searct the employee data
+                        </td>
+                    </tr>
+               
+                </tbody>
+
+           </table>
+        </div>
+    </div>    
+</body>
+</html>
