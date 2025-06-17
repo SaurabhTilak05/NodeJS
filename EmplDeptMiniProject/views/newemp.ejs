@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="ajax.js">
+
+    </script>
+</head>
+<body>
+    <%- include ("home.ejs") %>
+
+    <div class="container mt-1 bg-dark p-5">
+      <form action="/saveemp" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" id="" value="" placeholder="Enter Name" />
+        </div>
+
+
+          <div class="form-group">
+            
+            <input type="email" class="form-control" name="email" id="uemail" value="" placeholder="Enter email " 
+            onblur="checkEmailExistance(this.value)" />
+             <label class="text-white" id="lableMsg"></label> 
+
+
+        </div>
+
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="contact" id="" value="" placeholder="Enter Contact" />
+        </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" name="sal" id="" value="" placeholder="Enter Salary" />
+        </div>
+
+          <div class="form-group">
+            <input type="file" class="form-control" name="photo" id="" value=""  />
+        </div>
+
+         <div class="form-group">
+           <select name="deptid" id="" class="form-control">
+                <option value="">Choose Dept</option>
+                <%
+                  deptList.forEach((deptData, index)=>{
+                  %>
+                  <option value="<%=deptData.deptid %>"><%=deptData.deptname%></option>
+                  <%
+                });
+                
+                %>
+           </select>
+        </div>
+
+
+         <div class="form-group">
+            <input type="submit" class="form-control" name="s" id="" value="Add New Employee"  />
+        </div>
+
+          <% 
+          if(msg.length!=0){
+            %>
+              <div class="alert alert-success" role="alert"  id="bt">
+           <%=msg%>
+              </div>
+              <% 
+            }
+              %>
+        </form>
+    </div>
+</body>
+</html>
