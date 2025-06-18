@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee</title>
+</head>
+<body>
+    <%- include("home.ejs"); %>
+    <br><br>
+    <form action="/updateemp" method="POST">
+    <div class="container p-5 bg-dark">
+        <div class="form-group">
+        <input type="hidden" class="form-control control" name="id" value="<%=id%>">
+        </div>
+        <div class="form-group">
+        <input type="text" class="form-control control" name="name" value="<%=name%>">
+        </div>
+        <div class="form-group">
+        <input type="submit" class="btn-primary control" name="s" value="Update Employee">
+        </div>
+    </div>
+    </form>
+</body>
+</html>
