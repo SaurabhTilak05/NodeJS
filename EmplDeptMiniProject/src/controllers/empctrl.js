@@ -24,39 +24,118 @@ exports.saveEmployee = (req, res) => {
         res.send(err);
     });
 }
-exports.getAllEmp = (req, res) => {
-    let promise = empCrud.getallEmp();
-    promise.then((result) => {
-        res.render("viewemployee.ejs", { EmpList: result });
-    });
-    promise.catch((err) => {
+
+
+// exports.getAllEmp = (req, res) => {
+//     let promise = empCrud.getallEmp();
+//     promise.then((result) => {
+//         res.render("viewemployee.ejs", { EmpList: result });
+//     });
+//     promise.catch((err) => {
+//         res.send(err);
+//     });
+// }
+
+
+exports.getAllEmp=(req,res)=>{
+    let promise=empCrud.getAllEmp();
+    promise.then((result)=>{
+        res.render("viewAllemp.ejs",{Emplist:result})
+    }).catch((err)=>{
         res.send(err);
     });
 }
 
-exports.delEmp = (req, res) => {
-    let eid = parseInt(req.query.eid);
-    let promise = empCrud.delEmpById(eid);
-    promise.then((result) => {
-        let p = empCrud.getallEmp();
-        p.then((result) => {
-            res.render("viewemployee.ejs", { EmpList: result });
-        });
-        p.catch((err) => {
-            res.send(err);
-        });
-    });
-    promise.catch((err) => {
 
+
+// exports.delEmp = (req, res) => {
+//     let eid = parseInt(req.query.eid);
+//     let promise = empCrud.delEmpById(eid);
+//     promise.then((result) => {
+//         let p = empCrud.getallEmp();
+//         p.then((result) => {
+//             res.render("viewAllemp.ejs", { EmpList: result });
+//         });
+//         p.catch((err) => {
+//             res.send(err);
+//         });
+//     });
+//     promise.catch((err) => {
+//     });
+// }
+
+
+
+exports.deleteEmp=(req,res)=>{
+    let eid=parseInt(req.query.eid);
+    let promise=empCrud.deleteEmpById(eid);
+    promise.then((result)=>{
+        let p=empCrud.getAllEmp();
+        p.then((result)=>{
+            res.render("viewAllemp.ejs",{Emplist:result})
+        }).catch((err)=>{
+            res.send(err);
+        })
+    }).catch((err)=>{
+        res.send(err);
+    })
+}
+
+// exports.updateEmp = (req, res) => {
+//     res.render("updateemp.ejs", {
+//         name: req.query.name,
+//         eid: req.query.eid
+//     });
+// }
+
+
+
+exports.viewEmp=(req,res)=>{
+    let eid=parseInt(req.query.eid);
+    let promise=empCrud.getEmp(eid);
+    promise.then((result)=>{
+        res.render("singleEmp.ejs",{Emplist:result})
+    }).catch((err)=>{
+        res.send(err);
     });
 }
 
 
-exports.updateEmp = (req, res) => {
-    res.render("updateemp.ejs", {
-        name: req.query.name,
-        eid: req.query.eid
+
+
+exports.searchEmp=(req,res)=>{
+    let dept=req.query.dept;
+    let promise=empCrud.getEmpByDept(dept);
+        promise.then((result)=>{
+            res.json(result);
+        }).catch((err)=>{
+            res.send("Something went wrong");
     });
+}
+
+
+
+exports.updateEmp=(req,res)=>{
+    res.render("updateEmp.ejs",{name:req.query.name,
+                                id:req.query.id});
+}
+
+
+
+
+exports.empFinalUpdate=(req,res)=>{
+    let {id,name}=req.body;
+        let promise=empCrud.finalUpdateEmp(id,name);
+        promise.then((result)=>{
+            let p=empCrud.getAllEmp();
+            p.then((result)=>{
+                res.render("viewAllemp.ejs",{Emplist:result})
+            }).catch((err)=>{
+                res.send(err);
+            });
+        }).catch((err)=>{
+            res.send(err);
+        })  
 }
 
 
@@ -74,13 +153,6 @@ exports.verifyEmail = (req, res) => {
     });
 }
 
-exports.viewEmployee = (req, res) => {
-    let p = dbmodel.getAllDept();
-    let emps = empCrud.getallEmp();
-    p.then((r) => {
-        res.render("viewemployee.ejs", { deptList: r });
-    });
-}
 exports.getEmployeeByDeptId = (req, res) => {
     let deptId = parseInt(req.query.deptId);
     let promise = empCrud.getEmployeeByDeptID(deptId);
@@ -91,7 +163,3 @@ exports.getEmployeeByDeptId = (req, res) => {
         console.log(err);
     })
 }
-
-// exports.getAllEmployee=(req,res)=>{
-
-// }
