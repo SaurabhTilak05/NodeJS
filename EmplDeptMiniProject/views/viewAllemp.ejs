@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Employee</title>
+    <script src="ajax.js"></script>
+</head>
+<body>
+    <%- include("home.ejs")%>
+    <div class="container mt-5">
+        <div class="form-group">
+            <input type="text" name="name" value="" class="form-control" placeholder="search employee by department" onkeyup="searchEmpByDept(this.value)">
+        </div>
+
+        <table class="table table-striped table-dark table-bordered">
+        <tr>
+            <th>SR No</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Contact</th>
+            <th>DELETE</th>
+            <th>UPDATE</th>
+            <th>View Details</th>
+        </tr>
+        <tbody id="tblBody">
+
+        <%
+            if(Emplist.length!=0){
+                Emplist.forEach((row,index)=>{
+        %>
+            <tr>
+                <td><%=index+1%></td>
+                <td><%=row.name%></td>
+                <td><%=row.deptname%></td>
+                <td><%=row.contact%></td>
+                <td><a href="/deleteEmp?eid=<%=row.eid%>">DELETE</a></td>
+                <td><a href="/updEmp?name=<%=row.name%>&id=<%=row.eid%>">UPDATE</a></td>
+                <td><a href="/viewEmp?eid=<%=row.eid%>">View details</a></td>
+            </tr>
+        <%
+                })
+            }
+            else{
+        %>
+            <td colspan="4" style="text-align: center;"> No Data Found !!</td>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
