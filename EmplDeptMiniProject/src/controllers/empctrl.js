@@ -19,8 +19,8 @@ exports.saveEmployee = (req, res) => {
         p.then((r) => {
             res.render("newemp.ejs", { deptList: r, msg: result });
         });
-    });
-    promise.catch((err) => {
+    })
+    .catch((err) => {
         res.send(err);
     });
 }
