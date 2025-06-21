@@ -17,13 +17,24 @@ async function getLoginUserProfile(loginUserId){
     return userData;
 }
 
-async function getUpdateReg(name,email,contact,username,password,rid){
-    console.log('req.body:', req.body);
-    let regid = await conn.query(
-            "UPDATE register SET name=?, email=?, contact=?, username=?, password=?, photo=? WHERE rid=?",
-            [name, email, contact, username, password, photo, rid]
+async function getUpdateReg(name,email,contact,username,password,newphoto,rid){
+    if(newphoto.length==0)
+    {
+let regid = await conn.query(
+            "UPDATE register SET name=?, email=?, contact=?, username=?, password=? WHERE rid=?",
+            [name, email, contact, username, password ,rid]
         );
         return regid;
+    }
+    else
+    {
+let regid = await conn.query(
+            "UPDATE register SET name=?, email=?, contact=?, username=?, password=?, photo=? WHERE rid=?",
+            [name, email, contact, username, password ,newphoto,rid]
+        );
+        return regid;
+    }
+    
 }
 
 
