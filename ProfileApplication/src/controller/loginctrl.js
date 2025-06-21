@@ -5,6 +5,17 @@ exports.loginController= (req,res)=>{
     res.render("login.ejs",{msg:""});
 }
 
+//logout
+exports.logout= (req,res)=>{
+ req.session.destroy((err) => {
+  if (err) {
+    console.error('Error destroying session:', err);
+  } else {
+    res.redirect('/'); 
+  }
+});
+}
+
 exports.regController=(req,res)=>{
     res.render("register.ejs",{msg:""});
 }
@@ -58,11 +69,17 @@ exports.getLoginUserProfile=(req,res)=>{
 }
 
 exports.getUpdateRegister=(req,res)=>{
-    let {name,email,contact,username,password} =req.body;
+    let {name,email,contact,username,password,oldphoto} =req.body;
      let loginUserId=req.session.loginUserId;
-    
-   let ss = regModel.getUpdateReg(name,email,contact,username,password,loginUserId);
-   console.log(ss);
+     let photo=(req.file)? req.file.filename:oldphoto;
+   let result=regModel.getUpdateReg(name,email,contact,username,password,photo,loginUserId);
+   result.then((r)=>{
+      console.log(r);
+   }).catch((err)=>{
+      console.log(err);
+      
+   })
+   res.redirect("/getLoginUserProfile");
 }
 
 exports.getupdteform=(req,res)=>
