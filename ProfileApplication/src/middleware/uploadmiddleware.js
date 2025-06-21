@@ -7,5 +7,6 @@ let storage=multer.diskStorage({
         cb(null,file.originalname);
     }
 });
+
 let upload=multer({storage:storage});
 module.exports=upload;
