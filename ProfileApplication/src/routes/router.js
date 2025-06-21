@@ -11,7 +11,7 @@ router.post("/regsave",upload.single("photo"), ctrl.saveReg);
 router.post("/validateUser",ctrl.validateLoginUser);
 router.get("/getLoginUserProfile",ctrl.getLoginUserProfile);
 router.get("/getupdaeform",ctrl.getupdteform);
-router.post("/updateprofile",ctrl.getUpdateRegister);
+router.post("/updateprofile",upload.single("newphoto"),ctrl.getUpdateRegister);
 
-router.post("/logout",ctrl.loginController);
+router.post("/logout",ctrl.logout);
 module.exports=router;
