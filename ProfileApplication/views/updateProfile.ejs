@@ -10,11 +10,11 @@
 <body>
     
 
-    <%-include("viewProfile.ejs")%>
+   
 
       <form action="/updateprofile" method="post" >
-        <div class="container bg-dark p-5 mt-5">
-<div class="upper">
+        <div class="container  p-5 mt-5">
+        <div class="upper">
         <div class="one">
 
                 <div class="form-group">
@@ -43,6 +43,14 @@
                             <div class="form-group">
                                 <img src="/images/<%=u.photo%>" alt="" >
                         </div>
+
+
+                         <div class="form-group">
+
+                                <input type="file" name="oldphoto" id="" value=""/>
+                                
+                         </div>
+                        
                 </div>
 
 
