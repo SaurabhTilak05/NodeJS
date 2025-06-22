@@ -74,7 +74,7 @@ exports.getUpdateRegister=(req,res)=>{
      let photo=(req.file)? req.file.filename:oldphoto;
    let result=regModel.getUpdateReg(name,email,contact,username,password,photo,loginUserId);
    result.then((r)=>{
-      console.log(r);
+      
    }).catch((err)=>{
       console.log(err);
       
