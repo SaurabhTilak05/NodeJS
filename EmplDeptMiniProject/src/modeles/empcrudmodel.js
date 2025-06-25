@@ -47,19 +47,6 @@ exports.verifyEmail=(userEmail)=>{
 }
 
 
-// exports.getallEmp=()=>{
-//     return new Promise((resolve,reject)=>{
-//         db.query("select *from employee ",(err,result)=>{
-//             if(err)
-//             {
-//                 reject("No Data ");
-//             }
-//             else{
-//                 resolve(result);
-//             }
-//         });
-//     });
-// }
 
 
 
@@ -92,34 +79,6 @@ exports.getEmployeeByDeptID=(deptId)=>{
 }
 
 
-// exports.getAllEmpInf=()=>{
-//     return new Promise((resolve,reject)=>{
-//         db.query("select *from employee",(err,result)=>{
-//         if(err){
-//             reject(err);
-//         }
-//         else{
-//             resolve(result);
-//         }
-//        })
-//     });
-// }
-
-
-// exports.delEmpById=(eid)=>{
-//     return new Promise((resolve, reject)=>{
-//         db.query("delete from employee where eid=?",[eid],(err,result)=>{
-//             if(err)
-
-//             {
-//                 reject(err);
-//             }
-//             else{
-//                 resolve(result);
-//             }
-//         });
-//     });
-// }
 
 
 
