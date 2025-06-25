@@ -26,15 +26,6 @@ exports.saveEmployee = (req, res) => {
 }
 
 
-// exports.getAllEmp = (req, res) => {
-//     let promise = empCrud.getallEmp();
-//     promise.then((result) => {
-//         res.render("viewemployee.ejs", { EmpList: result });
-//     });
-//     promise.catch((err) => {
-//         res.send(err);
-//     });
-// }
 
 
 exports.getAllEmp=(req,res)=>{
@@ -47,22 +38,6 @@ exports.getAllEmp=(req,res)=>{
 }
 
 
-
-// exports.delEmp = (req, res) => {
-//     let eid = parseInt(req.query.eid);
-//     let promise = empCrud.delEmpById(eid);
-//     promise.then((result) => {
-//         let p = empCrud.getallEmp();
-//         p.then((result) => {
-//             res.render("viewAllemp.ejs", { EmpList: result });
-//         });
-//         p.catch((err) => {
-//             res.send(err);
-//         });
-//     });
-//     promise.catch((err) => {
-//     });
-// }
 
 
 
@@ -80,13 +55,6 @@ exports.deleteEmp=(req,res)=>{
         res.send(err);
     })
 }
-
-// exports.updateEmp = (req, res) => {
-//     res.render("updateemp.ejs", {
-//         name: req.query.name,
-//         eid: req.query.eid
-//     });
-// }
 
 
 
