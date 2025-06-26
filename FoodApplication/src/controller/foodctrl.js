@@ -1,17 +1,12 @@
 let foodmodel=require("../models/foodcurdmodel.js");
 
-
 exports.homePage=(req,res)=>{
     res.render("home.ejs");
 }
 
-
 exports.showadd=((req,res)=>{
    res.render("addcategory.ejs",{msg:""});
 });
-
-
-
 
 exports.showget = (req, res) => {
     let promise = foodmodel.getAllCategory(); 
@@ -24,7 +19,6 @@ exports.showget = (req, res) => {
     });
 };
 
-
 exports.addcatgory=((req,res)=>{
     let {category}=req.body;
     let promise=foodmodel.addCat(category);
@@ -33,12 +27,7 @@ exports.addcatgory=((req,res)=>{
     }).catch((err)=>{
          res.render("addcategory.ejs",{msg:err});
     });
-   
 });
-
-
-
-
 
 exports.getAllCategory=(req,res)=>{
     let promise=foodmodel.getAllCategory();
@@ -49,8 +38,6 @@ exports.getAllCategory=(req,res)=>{
         res.send(err);
     });
 }
-
-
 
 exports.searchCategoryByName=((req,res)=>{
     let category=req.query.cn;
@@ -63,15 +50,11 @@ exports.searchCategoryByName=((req,res)=>{
 });
 
 
-
 exports.updateCategory=(req,res)=>{
     res.render("updateCategory.ejs",{category :req.query.cn,
                                     category_id:req.query.category_id
     });
 }
-
-
-
 
 exports.CatFinalUpdate=(req,res)=>{
     let {id,name}=req.body;
@@ -87,7 +70,6 @@ exports.CatFinalUpdate=(req,res)=>{
         res.send("Category Not Updated... ");
     });
 }
-
 
 exports.delCat=(req, res)=>{
    let category_id=parseInt(req.query.category_id);
@@ -106,9 +88,6 @@ exports.delCat=(req, res)=>{
    });
 }
 
-
-
-
 // Food 
 exports.addfood=((req,res)=>{
     let {name,price,availabel,cid}=req.body;
@@ -121,7 +100,6 @@ exports.addfood=((req,res)=>{
    
 });
 
-
 exports.getAllFood=(req,res)=>{
     let promise=foodmodel.getAllFood();
     promise.then((result)=>{
@@ -130,7 +108,6 @@ exports.getAllFood=(req,res)=>{
         res.send(err);
     });
 }
-
 
 exports.searchCategory=(req,res)=>{
     let food_item=req.query.food_item;
@@ -141,7 +118,6 @@ exports.searchCategory=(req,res)=>{
             res.send("Something went wrong");
     });
 }
-
 
 
 exports.deleteFood=(req,res)=>{
