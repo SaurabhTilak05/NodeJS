@@ -1,5 +1,5 @@
 
-let searchCategory=(str)=>{
+let searchCategory=(str)=>{ // search Category
     let xhttp=new XMLHttpRequest();
     xhttp.onreadystatechange=function(){
         if(this.readyState==4 && this.status==200){
@@ -32,8 +32,7 @@ let searchCategory=(str)=>{
 
 
 
-
-let searchEmpByCategory=(str)=>{
+let searchFoodByCategory=(str)=>{   
     let xhttp=new XMLHttpRequest();
     xhttp.onreadystatechange=function(){
         if(this.readyState==4 && this.status==200){
@@ -63,8 +62,7 @@ let searchEmpByCategory=(str)=>{
                 row.appendChild(col);
                 col=document.createElement("td");
                 col.innerHTML="<a href='/updFood?name="+element.name+"&id="+element.id+"' >UPDATE</a>";
-                row.appendChild(col);
-               
+                row.appendChild(col);   
 
                 tablebody.appendChild(row);
            });
