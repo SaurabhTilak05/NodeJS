@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <%-include("home.ejs")%>
+    <form action="/updateFood" method="post">
+        <div class="container p-5 " >
+            
+            <div class="form-group">
+            <input type="hidden" name="id" id="" class="form-control control" value="<%=id%>"  />
+         </div>
+
+          <div class="form-group">
+              <input type="text" name="name" id="" class="form-control control" value="<%=name%>"  />
+         </div>
+          <div class="form-group">
+              <input type="text" name="price" id="" class="form-control control" value="<%=price%>"  />
+         </div>
+
+          <div class="form-group">
+              <input type="text" name="available" id="" class="form-control control" value="<%=available%>" />
+         </div>
+          <div class="form-group">
+           <select name="cid" id="" class="form-control control" >
+            <option value="0"><%=category%></option>
+                <%
+                  for(let i=0;i<CatList.length;i++){
+                  %>
+                  <option value="<%=CatList[i].category_id %>"><%=CatList[i].category%></option>
+                  <%
+                };
+                %>
+           </select>
+        </div>
+    <div class="form-group">
+        <input type="submit" name="" id="" class="form-control bg-primary" value="Update Food">
+
+        </div>
+        
+    </form>
+    </div>
+    
+</body>
+</html>
