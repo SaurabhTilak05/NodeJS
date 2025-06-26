@@ -44,7 +44,6 @@ exports.getAllCategory=()=>{
 }
 
 
-
 exports.getcategoryByName=(category)=>{
     return new Promise((resolve,reject)=>{
         db.query("select *from category where category like '%"+category+"%'",(err,result)=>{
@@ -92,8 +91,7 @@ exports.delcategoryById=(category_id)=>{
 }
 
 
-// food
-
+// food Database management
 
 exports.getAllFood=()=>{
     return new Promise((resolve,reject)=>{
@@ -122,7 +120,6 @@ exports.getEmpfoodBycat=(category)=>{
 }
 
 
-
 exports.deleteFoodById=(id)=>{
     return new Promise((resolve ,reject)=>{
         db.query("delete from food_item where id=?",[id],(err,result)=>{
@@ -134,8 +131,6 @@ exports.deleteFoodById=(id)=>{
         })
     })
 }
-
-
 
 
 exports.finalUpdateFood=(id,name,price,availabel,category)=>{
