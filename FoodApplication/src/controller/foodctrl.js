@@ -137,7 +137,7 @@ exports.deleteFood=(req,res)=>{
 exports.updateFood = (req, res) => {
     let promise = foodmodel.getAllCategory(); 
     promise.then((result) => {
-        res.render("updateFood.ejs", { CatList : result, msg: "" ,name: req.query.name,
+        res.render("updateFood.ejs", {CatList : result, msg: "" ,name: req.query.name,
         price: req.query.price,
         available: req.query.available,
         category: req.query.category,
