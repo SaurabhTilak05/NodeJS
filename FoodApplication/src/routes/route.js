@@ -13,14 +13,12 @@ router.get("/updatecat",foodctrl.updateCategory);
 router.post("/updatecategory",foodctrl.CatFinalUpdate);
 router.get("/deldept", foodctrl.delCat);
 
-
 // Food
 router.get("/addfodd",foodctrl.showget);
 router.post("/addfoodi",foodctrl.addfood);
 router.get("/viewAllFood",foodctrl.getAllFood);
 router.get("/searchfoodBycategory",foodctrl.searchCategory);
 router.get("/deletefood",foodctrl.deleteFood);
-
 router.get("/updFood",foodctrl.updateFood);
 router.post("/updateFood",foodctrl.foodFinalUpdate);
 
