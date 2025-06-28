@@ -15,17 +15,15 @@
     <div class="form-group">
         <input type="text" name="name"  id="" value="" class="form-control" onkeyup="searchCategory(this.value)"/>
     </div> 
-
     <table class="table table-dark">
         <tr>
             <th>SR NO</th>
             <th>Category NAME</th>
             <th>Delete</th>
             <th>Update</th>
-          
         </tr>
-        
         <tbody id="tblBody">
+
 
         <%
         if(CatList.length!=0){
@@ -52,5 +50,6 @@
         </tbody>
     </table>
     </div>
+
 </body>
 </html>
