@@ -12,9 +12,8 @@
     <div class="main">
     <div class="containe">
         <div class="form-group">
-            <input type="text" name="name" value="" class="form-control" placeholder="search Food by Category" onkeyup="searchEmpByCategory(this.value)">
+            <input type="text" name="name" value="" class="form-control" placeholder="search Food by Category" onkeyup="searchFoodByCategory(this.value)">
         </div>
-
         <table class="table table-striped table-secondary table-bordered">
         <tr>
             <th>SR No</th>
@@ -38,8 +37,7 @@
                 <td><%=row.available%></td>
                 <td><%=row.category%></td>
                 <td><a href="/deletefood?id=<%=row.id%>" style ="color: rgb(14, 10, 50);">DELETE</a></td>
-                <td><a href="/updFood?name=<%=row.name%>&id=<%=row.id%>&price=<%=row.price%>&available=<%=row.available%>&category=<%=row.category%>" style="color: black;">UPDATE</a></td>
-             
+                <td><a href="/updFood?name=<%=row.name%>&id=<%=row.id%>&price=<%=row.price%>&available=<%=row.available%>&category=<%=row.category%>" style="color: black;">UPDATE</a></td> 
             </tr>
         <%
                 })
@@ -52,7 +50,9 @@
         %>
         </tbody>
     </table>
+
     </div>
     </div>
+
 </body>
 </html>
