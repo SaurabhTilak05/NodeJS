@@ -45,7 +45,7 @@ exports.searchCategoryByName=((req,res)=>{
    promise.then((result)=>{
     res.json(result);
    }).catch((err)=>{
-    res.send("Something went wrong..");
+    res.send("Something went wrong...");
    })
 });
 
@@ -88,7 +88,7 @@ exports.delCat=(req, res)=>{
    });
 }
 
-// Food 
+// Food Controller
 exports.addfood=((req,res)=>{
     let {name,price,availabel,cid}=req.body;
     let promise=foodmodel.addf(name,price,availabel,cid);
