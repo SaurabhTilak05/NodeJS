@@ -1,5 +1,5 @@
 
-let searchCategory=(str)=>{ // search Category
+let searchCategory=(str)=>{ 
     let xhttp=new XMLHttpRequest();
     xhttp.onreadystatechange=function(){
         if(this.readyState==4 && this.status==200){
@@ -31,7 +31,12 @@ let searchCategory=(str)=>{ // search Category
             col.innerHTML="<a href='/deldept?id="+element.id+"'>DELETE</a>";
             row.appendChild(col); 
             col=document.createElement("td");
-            col.innerHTML="<a href='/updateProd?pid="+element.name+"&id="+ element.id+"'>UPDATE</a>";
+          col.innerHTML = "<a href='/updateProd?name=" + element.name +
+                "&category=" + element.category +
+                "&price=" + element.price +
+                "&quantity=" + element.quantity +
+                "&id=" + element.id + "'>UPDATE</a>";
+
             row.appendChild(col);
 
             tableBody.appendChild(row);
