@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+<body>
+    <%-include("home.ejs")%>
+     <form action="/UpdateProd" method="post">
+        <div class="container p-5 bg-dark mt-5 " >
+
+
+            <div class="form-group">
+                <input type="text" name="id" id="" class="form-control control" value="<%=id%>" />
+            </div>
+            
+            <div class="form-group">
+                <input type="text" name="name" id="" class="form-control control" value="<%=name%>"  />
+            </div>
+            <div class="form-group">
+                <input type="text" name="category" id="" class="form-control control" value="<%=category%>"  />
+            </div>
+            <div class="form-group">
+                <input type="text" name="price" id="" class="form-control control" value="<%=price%>" />
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="quantity" id="" class="form-control control" value="<%=quantity%>"  />
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" name="" id="" class="form-control bg-primary" value="Update Product">
+            </div>
+          
+        </div>
+    </form>   
+    
+</body>
+</html>
