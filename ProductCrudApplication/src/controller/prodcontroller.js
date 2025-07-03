@@ -65,7 +65,7 @@ exports.delProduct=(req, res)=>{
 
 
 exports.updateProduct=(req,res)=>{
-    res.render("updateProduct.ejs",{name :req.query.pid,
+    res.render("updateProduct.ejs",{name :req.query.name,
                                 category:req.query.category,
                                 price:req.query.price,
                                 quantity:req.query.quantity,
