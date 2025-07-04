@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Update Product</title>
+
+  <!-- Bootstrap CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./update.css">
+ 
 </head>
+
 <body>
-    <%-include("home.ejs")%>
-     <form action="/UpdateProd" method="post">
-        <div class="container p-5 bg-dark mt-5 " >
+  <!-- Navbar include -->
+  <%- include("home.ejs") %>
 
-            <div class="form-group">
-                <input type="hidden" name="id" id="" class="form-control control" value="<%=id%>" />
-            </div>
-            
-            <div class="form-group">
-                <input type="text" name="name" id="" class="form-control control" value="<%=name%>"  />
-            </div>
-            <div class="form-group">
-                <input type="text" name="category" id="" class="form-control control" value="<%=category%>"  />
-            </div>
-            <div class="form-group">
-                <input type="text" name="price" id="" class="form-control control" value="<%=price%>" />
-            </div>
+  <!-- Form Section -->
+  <div class="update-container">
+    <div class="update-title">✏️ Update Product</div>
+    <form action="/UpdateProd" method="post">
+      <input type="hidden" name="id" value="<%= id %>" />
 
-            <div class="form-group">
-                <input type="text" name="quantity" id="" class="form-control control" value="<%=quantity%>"  />
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" name="" id="" class="form-control bg-primary" value="Update Product">
-            </div>
-          
-        </div>
-    </form>   
-    
+      <div class="form-group">
+        <label for="name"><strong>Product Name</strong></label>
+        <input type="text" name="name" class="form-control" value="<%= name %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="category"><strong>Category</strong></label>
+        <input type="text" name="category" class="form-control" value="<%= category %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="price"><strong>Price (₹)</strong></label>
+        <input type="number" name="price" class="form-control" value="<%= price %>" required />
+      </div>
+
+      <div class="form-group">
+        <label for="quantity"><strong>Quantity</strong></label>
+        <input type="number" name="quantity" class="form-control" value="<%= quantity %>" required />
+      </div>
+
+      <button type="submit" class="btn btn-update btn-block">Update Product</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
