@@ -1,0 +1,48 @@
+body {
+      background-color: #f4f6f9;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .update-container {
+      max-width: 600px;
+      margin: 60px auto;
+      background-color: #7dccee;
+      padding: 40px;
+      border-radius: 12px;
+      color: #f4f6f9;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .update-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 15px;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: none;
+    }
+
+    .btn-update {
+      background-color: #007bff;
+      color: white;
+      font-weight: 600;
+      padding: 12px;
+      font-size: 17px;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+
+    .btn-update:hover {
+      background-color: #0056b3;
+    }
