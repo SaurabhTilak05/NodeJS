@@ -1,0 +1,55 @@
+  body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .main {
+      padding: 40px 0;
+    }
+
+    .container-box {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .form-control {
+      border-radius: 20px;
+      font-size: 16px;
+    }
+
+    table {
+      margin-top: 20px;
+    }
+
+    table th {
+      background-color: #343a40;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    table td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .btn-link {
+      padding: 0;
+    }
+
+    a.btn-update {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.btn-delete {
+      color: #dc3545;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.btn-update:hover, a.btn-delete:hover {
+      text-decoration: underline;
+    }
