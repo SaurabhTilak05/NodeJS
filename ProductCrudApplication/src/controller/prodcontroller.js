@@ -1,7 +1,7 @@
 let prodModel=require("../models/ProdCtrlModel.js");
 
 exports.homePage=(req,res)=>{
-    res.render("home.ejs");
+    res.render("viewhome.ejs");
 }
 
 exports.addProdpage=(req,res)=>{
@@ -65,7 +65,7 @@ exports.delProduct=(req, res)=>{
 
 
 exports.updateProduct=(req,res)=>{
-    res.render("updateProduct.ejs",{name :req.query.name,
+    res.render("updateProduct.ejs",{name:req.query.name,
                                 category:req.query.category,
                                 price:req.query.price,
                                 quantity:req.query.quantity,
@@ -74,15 +74,10 @@ exports.updateProduct=(req,res)=>{
     });
 }
 
-
-
-
-
 exports.ProductFinalUpdate=(req,res)=>{
     let {id,name,category,price,quantity}=req.body;
     let promise=prodModel.finalUpdateProduct(id,name,category,price,quantity);
     promise.then((result)=>{
-
        let p=prodModel.getAllProduct();
     p.then((result)=>{
         res.render("viewallproduct.ejs",{ProdList:result}); 
