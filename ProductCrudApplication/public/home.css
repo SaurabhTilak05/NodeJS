@@ -1,0 +1,40 @@
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      background-color: #343a40;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    .nav-link {
+      color: #ffffff !important;
+      font-weight: 500;
+      margin-right: 15px;
+    }
+
+    .nav-link:hover {
+      color: #ffc107 !important;
+    }
+
+    .header-title {
+      text-align: center;
+      padding: 20px 20px 20px 20px;
+    }
+
+    .header-title h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #343a40;
+    }
+
+   
+    .hero-box {
+      text-align: center;
+      padding: 40px;
+      margin: 0 auto;
+    }
