@@ -28,7 +28,7 @@ let searchCategory=(str)=>{
             row.appendChild(col);
 
             col=document.createElement("td");
-            col.innerHTML="<a href='/deldept?id="+element.id+"'>DELETE</a>";
+            col.innerHTML="<a href='/deleteProd?id="+element.id+"'>DELETE</a>";
             row.appendChild(col); 
             col=document.createElement("td");
           col.innerHTML = "<a href='/updateProd?name=" + element.name +
