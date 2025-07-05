@@ -10,8 +10,8 @@ exports.addProdpage=(req,res)=>{
 
 
 exports.addProduct=((req,res)=>{
-    let {name,category,price,quantity}=req.body;
-    let promise=prodModel.addProduct(name,category,price,quantity);
+    let {name,category,price,quantity,discount}=req.body;
+    let promise=prodModel.addProduct(name,category,price,quantity,discount);
     promise.then((result)=>{
         res.render("addproduct.ejs",{msg:result});
     }).catch((err)=>{
@@ -60,8 +60,6 @@ exports.delProduct=(req, res)=>{
 
    });
 }
-
-
 
 
 exports.updateProduct=(req,res)=>{
