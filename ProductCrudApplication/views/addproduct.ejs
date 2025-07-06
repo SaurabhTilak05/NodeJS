@@ -1,66 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
-    <style>
-        .cont{
-            background-color: aqua;
-            width: 700px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        #nm{
-            width: 500px;
-        }
-        .wrp{
-             
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Product</title>
+
+ 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="/addprod.css">
+<script src="/src/validation/validate.js"></script>
+<style>
+  .validation-error {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.is-invalid {
+  border-color: #d9534f;
+  box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.2);
+}
+
+</style>
 </head>
+
 <body>
-    <%-include("home.ejs")%>
-    <div class="wrp">
-     <form  id="fr" action="/addProd" method="post">
-        <div class="cont mt-5 p-5" >
-            
-            <div class="form-group">
-                <input type="text" name="name" id="nm" class="form-control control" value="" placeholder="Enter Name" />
-            </div>
-            <div class="form-group">
-                <input type="text" name="category" id="nm" class="form-control control" value="" placeholder="Enter Category" />
-            </div>
-            <div class="form-group">
-                <input type="text" name="price" id="nm" class="form-control control" value="" placeholder="Enter Price" />
-            </div>
-
-            <div class="form-group">
-                <input type="text" name="quantity" id="nm" class="form-control control" value="" placeholder="Enter quantity" />
-            </div>
-            
-            <div class="form-group">
-                <input type="submit" name="" id="nm" class="form-control bg-primary" value="Add Product">
-            </div>
-              <%
-        if(msg.length!=0){
-        %>
-        <div class="form-control btn-success">
-                <%=msg%>
-        </div>
-         <%
-        }
-         %>
-        </div>
-    </form>
-
-    </div>
+  <%- include("home.ejs") %>
+    <br><br>
     
+  <div class="container-wrapper">
+    
+    <form action="/addProd" method="post" class="form-box">
+     <% if(msg.length !== 0) { %>
+  <div id="successMsg" class="msg-success">✅ <%= msg %></div>
+<% } %>
+
+      <h2>➕ Add New Product</h2>
+
+      <div class="form-group">
+        <label for="name">Product Name</label>
+        <input type="text" name="name" class="form-control"  placeholder="Enter product name" required  autocomplete="off"/>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" name="category" class="form-control" placeholder="Enter category" required autocomplete="off" />
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price (₹)</label>
+        <input type="number" name="price" class="form-control" placeholder="Enter price" required autocomplete="off"/>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="number" name="quantity" class="form-control" placeholder="Enter quantity" required autocomplete="off" />
+      </div>
+
+       <div class="form-group">
+        <label for="quantity">Discount</label>
+        <input type="number" name="discount" class="form-control" placeholder="Enter quantity" required autocomplete="off" />
+      </div>
+      <button type="submit" class="btn btn-submit">Add Product</button>
+
+     
+    </form>
+  </div>
+
+
+
+<script>
+  setTimeout(() => {
+    const msg = document.getElementById("successMsg");
+    if (msg) {
+      msg.style.transition = "opacity 0.5s ease";
+      msg.style.opacity = 0;
+      setTimeout(() => msg.remove(), 400); 
+    }
+  }, 2000);
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
