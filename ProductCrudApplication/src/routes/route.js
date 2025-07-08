@@ -12,4 +12,6 @@ router.get("/deleteProd", Prodctrl.delProduct);
 router.get("/updateProd",Prodctrl.updateProduct);
 router.post("/UpdateProd",Prodctrl.ProductFinalUpdate);
 
+router.get("/about",Prodctrl.About);
+
 module.exports=router;
