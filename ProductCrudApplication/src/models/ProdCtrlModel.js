@@ -1,8 +1,8 @@
 let db=require("../../db.js");
 
-exports.addProduct=(name,category,price,quantity,discount)=>{
+exports.addProduct=(name,category,price,quantity)=>{
     return new Promise ((resolve,reject)=>{
-       db.query("insert into product values('0',?,?,?,?,?)",[name,category,price,quantity,discount],(err,result)=>{
+       db.query("insert into product values('0',?,?,?,?)",[name,category,price,quantity],(err,result)=>{
         if(err){
             reject(err);
         }
