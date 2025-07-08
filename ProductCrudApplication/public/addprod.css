@@ -1,0 +1,100 @@
+ * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f4f6f9;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .container-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .form-box {
+      background-color: #ffffff;
+      width: 100%;
+      max-width: 700px;
+      padding: 50px 40px;
+      border-radius: 16px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-box h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-control {
+      padding: 14px 18px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+      outline: none;
+    }
+
+    .btn-submit {
+      background: #007bff;
+      color: #fff;
+      font-size: 20px;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: #0056b3;
+    }
+
+    .msg-success {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 14px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    @media (max-width: 576px) {
+      .form-box {
+        padding: 30px 25px;
+      }
+
+      .form-box h2 {
+        font-size: 26px;
+      }
+    }
